@@ -15,11 +15,6 @@ body {
     letter-spacing: 1px; 
 }
 
-.canvas{
-    width: 200px;
-    height: 400px; 
-}
-
 .caption { 
     text-align: center;
     margin: 0 0 32px 0;
