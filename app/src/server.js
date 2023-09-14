@@ -18,7 +18,6 @@ app.post("/", urlencodedParser, function (req, res) {
             return res.sendStatus(400);
         }
         console.log(req.body.Name);
-        //res.send(req.body.Name);
         res.redirect('/playground')
     }
 );
@@ -33,8 +32,13 @@ app.get("/css/playground.css", (req, res) => {
     }
 );
 
-app.get("/scripts/draw.js", (req, res) => {
-    res.sendFile(__dirname + "/scripts/draw.js");
+app.get("/scripts/field.js", (req, res) => {
+    res.sendFile(__dirname + "/scripts/field.js");
+    }
+);
+
+app.get("/scripts/index.js", (req, res) => {
+    res.sendFile(__dirname + "/scripts/index.js");
     }
 );
 
