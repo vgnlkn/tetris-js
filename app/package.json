@@ -2,13 +2,20 @@
     "name": "web",
     "version": "1.0.0",
     "description": "Tetris",
-    "main": "server.js",
+    "main": "/usr/app/src/server.js",
     "scripts": {
-    "start": "node server.js"
+        "start": "node /usr/app/src/server.js",
+        "dev": "nodemon -L /usr/app/src/server.js"
     },
+
     "dependencies": {
-        
+        "express": "^4.17.0"
     },
+
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    },
+
     "author": "",
     "license": "MIT"
 }

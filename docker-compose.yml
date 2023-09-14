@@ -4,8 +4,13 @@ services:
   app:
     restart: on-failure
     build: ./app
+    
     ports:
       - '81:5001'
+    
+    volumes:
+    - ./app/src/:/usr/app/src/
+
   nginx:
     build: ./nginx
     ports:

@@ -1,7 +1,14 @@
 FROM node:alpine
-WORKDIR /usr/src/app
-COPY ./package.json ./
-RUN npm install
-COPY ./server.js ./
 
-CMD ["npm","start"]
+WORKDIR /usr/app/
+
+# Install nodemon
+RUN npm install -g nodemon
+
+COPY ./package.json /usr/app/
+COPY ./src /usr/app/src/
+COPY yarn.lock /usr/app/
+
+RUN npm install
+
+CMD ["npm", "run", "dev"]
