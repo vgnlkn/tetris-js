@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.frame {
+    width: 200px;
+    height: 400px; 
+    padding: 32px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 16px #ccc;
+    font-family: sans-serif; 
+    letter-spacing: 1px; 
+}
+
+.canvas{
+    width: 200px;
+    height: 400px; 
+}
+
+.caption { 
+    text-align: center;
+    margin: 0 0 32px 0;
+    font-weight: normal;
+}
