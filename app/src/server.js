@@ -42,6 +42,25 @@ app.get("/scripts/index.js", (req, res) => {
     }
 );
 
+app.get("/scripts/figure.js", (req, res) => {
+    res.sendFile(__dirname + "/scripts/figure.js");
+    }
+);
+
+app.get("/scripts/next_figure.js", (req, res) => {
+    res.sendFile(__dirname + "/scripts/next_figure.js");
+    }
+);
+
+app.get("/scripts/controller.js", (req, res) => {
+    res.sendFile(__dirname + "/scripts/controller.js");
+    }
+);
+
+app.get("/scripts/figures.js", (req, res) => {
+    res.sendFile(__dirname + "/scripts/figures.js");
+    }
+);
 app.listen(5001, function () {
         console.log('Example app listening on port 3000!');
     }

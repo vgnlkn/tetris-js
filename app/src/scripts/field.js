@@ -12,8 +12,17 @@ class Field {
         this.ctx.canvas.width  = this.width;
         this.ctx.canvas.height = this.height;
 
+        this.color_table = [
+            "#EC7474", "#EC7", "#474", "#747", "#C74"
+        ];
+
+
         this.color = "#000000";
         this.drawGrid();
+        this.matrix = [];
+        for (let i=0; i<this.rows; i+=1){
+            this.matrix[i] = new Array(this.cols).fill(0);
+        }
     }
 
     setLineColor(color){
@@ -60,6 +69,15 @@ class Field {
 
         this.ctx.fillStyle = old_style;
 
+        this.matrix[row_index][col_index] = fill_color === "#fff" ? 0 : 1;
     }
-    
+
+    clear(){
+        for (let j=0; j<this.rows; ++j){
+            for (let i=0; i<this.cols; ++i){
+                this.fillCell(i, j, "#fff");
+            }
+        }
+    }
+
 };

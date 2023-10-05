@@ -1,4 +1,10 @@
-let canvas = document.getElementById("stack");
-let field = new Field(canvas, 10, 20);
+function main(){
+    // figure.moveTo(0, 0);
+    // figure_1.moveTo(2, 10);
+    // figure.startMotion();
+    let score = document.getElementById("score");
+    let controller = new Controller(score);
+    //controller.start();
+}
 
-field.fillCell(0, 0, "#EC7474")
+main();
