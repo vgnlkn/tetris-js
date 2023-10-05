@@ -13,22 +13,28 @@ app.get("/css/index.css", (req, res) => {
     }
 );
 
-app.post("/", urlencodedParser, function (req, res) {
-        if(!req.body){ 
-            return res.sendStatus(400);
-        }
-        console.log(req.body.Name);
-        res.redirect('/playground')
+app.get("/playground.html", (req, res) => {
+        res.sendFile(__dirname + "/playground.html")
     }
 );
 
-app.get("/playground", (req, res) => {
-        res.sendFile(__dirname + "/playground.html");
-    }
+app.get("/records.html", (req, res) => {
+    res.sendFile(__dirname + "/records.html")
+}
 );
 
 app.get("/css/playground.css", (req, res) => {
         res.sendFile(__dirname + "/css/playground.css");
+    }
+);
+
+app.get("/css/records.css", (req, res) => {
+    res.sendFile(__dirname + "/css/records.css");
+}
+);
+
+app.get("/scripts/login.js", (req, res) => {
+    res.sendFile(__dirname + "/scripts/login.js");
     }
 );
 
@@ -61,7 +67,10 @@ app.get("/scripts/figures.js", (req, res) => {
     res.sendFile(__dirname + "/scripts/figures.js");
     }
 );
-app.listen(5001, function () {
-        console.log('Example app listening on port 3000!');
+
+app.get("/scripts/records.js", (req, res) => {
+    res.sendFile(__dirname + "/scripts/records.js");
     }
 );
+
+app.listen(5001, () => {});

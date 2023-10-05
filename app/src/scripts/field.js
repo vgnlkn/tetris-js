@@ -20,8 +20,10 @@ class Field {
         this.color = "#000000";
         this.drawGrid();
         this.matrix = [];
+        this.color_matrix = [];
         for (let i=0; i<this.rows; i+=1){
             this.matrix[i] = new Array(this.cols).fill(0);
+            this.color_matrix[i] = new Array(this.cols).fill("#fff");
         }
     }
 
@@ -70,12 +72,31 @@ class Field {
         this.ctx.fillStyle = old_style;
 
         this.matrix[row_index][col_index] = fill_color === "#fff" ? 0 : 1;
+        this.color_matrix[row_index][col_index] = fill_color;
     }
 
     clear(){
         for (let j=0; j<this.rows; ++j){
             for (let i=0; i<this.cols; ++i){
                 this.fillCell(i, j, "#fff");
+            }
+        }
+    }
+
+    deleteRow(row_index){
+        for (let col=0; col < this.cols; ++col){
+            this.fillCell(col, row_index, "#fff");
+        }
+    }
+
+    moveRowsDown(row_index, figure_col, figure_row){
+        for (let row = row_index - 1; row >= 1; --row){
+            for (let col = 0; col < this.cols; ++col){
+                if (col === figure_col && row === figure_row)
+                    continue;
+                this.fillCell(col, row + 1, 
+                    this.color_matrix[row][col]  
+                );
             }
         }
     }

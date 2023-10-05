@@ -1,5 +1,5 @@
 class Figure{
-    constructor(field, figure_matrix, figure_orientation, figure_color){
+    constructor(field, figure_matrix, figure_orientation, figure_color, level=0){
         this.field = field;
         this.color = figure_color;
         this.figure_matrix = figure_matrix[figure_orientation];
@@ -8,6 +8,9 @@ class Figure{
         this.row = undefined;
         this.col = undefined;
         this.is_stopped = false;
+        this.is_paused = false;
+        this.time_int = 1000 - level * 100;
+        this.time_int = this.time_int >= 100 ? this.time_int : 100;
     }
 
     draw(col, row, is_white=false){
@@ -16,7 +19,9 @@ class Figure{
         let filled = 0;
         for (let j = 0; j < 4; j += 1){
             for (let i = 0; i < 4; i += 1){
-                if (this.figure_matrix[i][j]){
+                if (row + i < 20 && row + i >= 0 &&
+                    col + j < 10 && col + j >= 0 &&
+                    this.figure_matrix[i][j]){
                     this.field.fillCell(col + j, row + i, is_white ? "#fff" : this.color);     
                     filled += 1;
                 }
@@ -64,11 +69,21 @@ class Figure{
     async startMotion(){
         this.timer = setInterval(
             () => {
+                if (this.is_paused)
+                    return;
                 if (!this.moveTo(this.col, this.row + 1))
                     this.stopMotion();
             }, 
-            1000
+            this.time_int
         );
+    }
+
+    pauseMotion(){
+        this.is_paused = true;
+    }
+
+    resumeMotion(){
+        this.is_paused = false;
     }
 
     stopMotion(){

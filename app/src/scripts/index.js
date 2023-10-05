@@ -1,10 +1,10 @@
 function main(){
-    // figure.moveTo(0, 0);
-    // figure_1.moveTo(2, 10);
-    // figure.startMotion();
+    console.log(localStorage["tetris.username"]);
     let score = document.getElementById("score");
-    let controller = new Controller(score);
-    //controller.start();
+    let level = document.getElementById("level");
+    let lable = document.getElementById("lable");
+
+    let controller = new Controller(score, level, lable);
 }
 
 main();

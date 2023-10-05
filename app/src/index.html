@@ -4,15 +4,17 @@
         <title>Tetris</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="/css/index.css" />
+        <script type="text/javascript" src="/scripts/login.js"></script>
     </head>
     <body>
-        <form class="form" method="post">
+        <form action="playground.html" class="form" method="get">
             <h1 class="form-title">Tetris</h1>
             <div class="form-group">
                 <label class="form-label" placeholder=" ">Name:</label>
-                <input type="text" name="Name" class="form-input">
+                <input type="text" name="Name" class="form-input", id="input">
             </div>
-            <button class="form-button">Play</button>
+            <button class="form-button" onclick="playBttnClick();">Play</button>
         </form>
+        <p id="par"></p>
     </body>
 </html>

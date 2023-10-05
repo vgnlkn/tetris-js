@@ -20,3 +20,8 @@ body {
     margin: 0 0 32px 0;
     font-weight: normal;
 }
+
+.canvas {
+    display: block;
+    margin: 0 auto;
+}
